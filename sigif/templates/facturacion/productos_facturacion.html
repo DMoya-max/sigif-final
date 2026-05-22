@@ -1,26 +1,26 @@
 {% extends 'base.html' %}
-{% block title %} Clientes {% endblock %}  
+{% block title %} Productos - Facturación {% endblock %}  
 
 {% block content %}     
 
 <header class="facturacion-header">
     <h1>Gestión de facturación</h1>
-    <a href="{% url 'facturacion' %}"><i class="bi bi-backspace"></i></a>
+    <a href="{% url 'dashboard' %}"><i class="bi bi-backspace"></i></a>
 </header>
 
 <!-- Menu horizontal con Bootstrap button group -->
 <div class="menu-horizontal">
     <a href="{% url 'facturacion' %}">Facturas</a>
-    <a href="{% url 'clientes' %}" class="active">Clientes</a>
-    <a href="{% url 'productos_facturacion' %}" >Productos</a>  
+    <a href="{% url 'clientes' %}">Clientes</a>
+    <a href="{% url 'productos_facturacion' %}" class="active">Productos</a>  
 </div>
 
 <!-- CONTENEDOR DEL LISTADO -->
 <section class="usuarios-container2">
   <div class="usuarios-header">
     <div>
-      <h2>Lista de clientes</h2>
-      <p>Clientes registrados en el sistema</p>
+      <h2>Lista de productos</h2>
+      <p>Productos registrados en el sistema</p>
     </div>
   </div>
 
@@ -29,23 +29,25 @@
       <tr>
         <th>ID</th>
         <th>Nombre</th>
-        <th>Correo</th>
+        <th>Precio</th>
+        <th>Stock</th>
       </tr>
     </thead>
     <tbody>
-      {% for cliente in clientes %}
+      {% for producto in productos %}
       <tr>
-        <td>{{ cliente.id }}</td>
-        <td>{{ cliente.nombre }}</td>
-        <td>{{ cliente.correo }}</td>
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombre }}</td>
+        <td>${{ producto.precio }}</td>
+        <td>{{ producto.stock }}</td>
       </tr>
       {% empty %}
       <tr>
-        <td colspan="3">No hay clientes registrados</td>
+        <td colspan="4">No hay productos registrados</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
 </section>
 
-{% endblock %}   
+{% endblock %}
