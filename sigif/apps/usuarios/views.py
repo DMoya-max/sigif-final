@@ -20,7 +20,10 @@ def login_view(request):
 
 def usuarios(request):
     users = Usuarios.objects.all()
-    return render(request, 'usuarios/usuarios.html', {'users': users})
+    contexto = {
+        "datos": users
+    }
+    return render(request, 'usuarios/usuarios.html', contexto)
     
 
 def crear_usuarios(request):
