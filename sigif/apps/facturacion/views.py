@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Factura
+from .models import Factura, Cliente
 
 class FacturaListView(ListView):
     model = Factura
@@ -12,6 +12,8 @@ class FacturaDetailView(DetailView):
     template_name = 'facturacion/facturacion.html'
     context_object_name = 'factura'
 
-def clientes_placeholder(request):
-    return render(request, 'mant.html')
+def clientes_view(request):
+    clientes = Cliente.objects.all()
+    return render(request, 'facturacion/cliente.html', {'clientes': clientes})
+
 

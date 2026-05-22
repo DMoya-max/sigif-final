@@ -5,5 +5,5 @@ urlpatterns = [
     path('', views.FacturaListView.as_view(), name='facturacion'),
     path('facturas/', views.FacturaListView.as_view(), name='factura-list'),
     path('facturas/<int:pk>/', views.FacturaDetailView.as_view(), name='factura-detail'),
-    path('clientes/', views.clientes_placeholder, name='clientes'),
+    path('clientes/', views.clientes_view, name='clientes'),
 ]
