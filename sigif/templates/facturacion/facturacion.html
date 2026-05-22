@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %} Facturación {% endblock %}
+
+{% block content %} 
+
+
+        <header class="facturacion-header">
+            <h1>Gestión de facturación</h1>
+            
+        </header>
+
+        <!-- Menu horizontal -->
+        <div class="menu-horizontal">
+            <a href="{% url 'facturacion' %}">Facturas</a>
+            <a href="{% url 'clientes' %}">Clientes</a>
+            <a href="{% url 'productos' %}">Productos</a>
+        </div>
+
+        <!-- CONTENEDOR DEL LISTADO -->
+        <section class="facturacion-container2">
+            <div class="facturacion-header">
+                <div>
+                    <h2>Facturas recientes</h2>
+                    <p>Listado de las últimas facturas generadas</p>
+                </div>
+            </div>
+
+            <!-- Tarjetas de facturas -->
+            <div class="tarjetas-facturacion">
+                <div class="facturacion-info">
+                    <strong>Factura #001</strong>
+                    <div class="extra">
+                        <span>Cliente: Juan Pérez</span>
+                        <span>Total: $150,000</span>
+                        <span>Fecha: 2024-06-01</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjetas-facturacion">
+                <div class="facturacion-info">
+                    <strong>Factura #002</strong>
+                    <div class="extra">
+                        <span>Cliente: María Gómez</span>
+                        <span>Total: $200,000</span>
+                        <span>Fecha: 2024-06-02</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Más tarjetas de facturas... -->
+
+        </section>
+
+{% endblock %}
