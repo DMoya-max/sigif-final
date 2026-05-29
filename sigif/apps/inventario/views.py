@@ -11,3 +11,7 @@ def inv_historial(request):
 def inv_control(request):
 
     return render(request, "inventario/inv_control.html")
+
+def inv_configuracion(request):
+
+    return render(request, "configuracion/confi.html")
