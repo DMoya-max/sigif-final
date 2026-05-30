@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %} Configuración General {% endblock %}
+
+{% block content %}
+    <header class="inventario-header">
+        <h1>Configuración del Sistema</h1>
+    </header>
+
+    <div class="menu-horizontal">
+        <a href="{% url 'inv_control' %}" class="active">General y Empresa</a>
+        <a href="{% url 'inventario' %}">Impuestos y Facturas</a>
+        <a href="{% url 'inv_historial' %}">Backups y Permisos</a>
+    </div>
+
+    <section class="inventario-container2">
+        <div class="inv-header">
+            <div>
+                <h2>Datos de la Empresa</h2>
+                <p>Gestiona la información básica de tu negocio.</p>
+            </div>
+        </div>
+
+        <form action="{% url 'inv_control' %}" method="POST" class="form-configuracion">
+            {% csrf_token %}
+            
+            <div class="tarjetas-inv">
+                <div class="inv-info editable-field">
+                    <label for="nombre_comercial"><strong>Nombre Comercial:</strong></label>
+                    {% if user.is_staff %}
+                        <input type="text" id="nombre_comercial" name="nombre_comercial" value="Motos Cross S.A.S." class="form-input">
+                    {% else %}
+                        <span>Motos Cross S.A.S.</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="tarjetas-inv">
+                <div class="inv-info editable-field">
+                    <label for="nit"><strong>NIT / Identificación:</strong></label>
+                    {% if user.is_staff %}
+                        <input type="text" id="nit" name="nit" value="900.123.456-7" class="form-input">
+                    {% else %}
+                        <span>900.123.456-7</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="tarjetas-inv">
+                <div class="inv-info editable-field">
+                    <label for="direccion"><strong>Dirección:</strong></label>
+                    {% if user.is_staff %}
+                        <input type="text" id="direccion" name="direccion" value="Calle 45 #12-34" class="form-input">
+                    {% else %}
+                        <span>Calle 45 #12-34</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if user.is_staff %}
+                <div class="actions-container">
+                    <button type="submit" class="btn-guardar">Guardar Cambios</button>
+                </div>
+            {% endif %}
+        </form>
+    </section>
+{% endblock %}

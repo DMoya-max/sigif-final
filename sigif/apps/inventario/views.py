@@ -14,4 +14,4 @@ def inv_control(request):
 
 def inv_configuracion(request):
 
-    return render(request, "configuracion/confi.html")
+    return render(request, "configuracion/configuracion.html")
