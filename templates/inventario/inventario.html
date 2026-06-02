@@ -15,10 +15,6 @@
             <a href="{% url 'inv_historial' %}">Historial de movimientos</a>
         </div>
 
-        <div class="accion-agregar">
-            <button class="agregar">Agregar al carrito</button>
-        </div>
-
         <!-- CONTENEDOR DEL LISTADO -->
         <section class="inventario-container2">
             <div class="inv-header">
@@ -36,38 +32,19 @@
             </div>
 
             <!-- Tarjetas de inventario -->
+             {% for producto in producto %}
             <div class="tarjetas-inv">
                 <div class="inv-info">
-                    <strong>Neumatico Trasero - Cross 21</strong>
+                    <strong>{{ producto.nombre }}</strong>
                     <div class="extra">
-                        <span>Cantidad: 50 Unidades.</span>
+                        <span>Cantidad: {{ producto.stock }} Unidades.</span>
                         <span>Precio Unitario: </span>
-                        <span class="vl1">$90,000</span>
+                        <span class="vl1">${{ producto.precio|floatformat:2 }}</span>
+                        <button class="agregar">Agregar al carrito</button>
                     </div>
                 </div>
             </div>
+                {% endfor %}
 
-            <div class="tarjetas-inv">
-                <div class="inv-info">
-                    <strong>Kit De arrastre</strong>
-                    <div class="extra">
-                        <span>Cantidad: 15 Unidades.</span>
-                        <span>Precio unitario: </span>
-                        <span class="vl1">$180,000</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tarjetas-inv">
-                <div class="inv-info">
-                    <strong>Kit de cilindro 150cc</strong>
-                    <div class="extra">
-                        <span>Cantidad: 20 Unidades</span>
-                        <span>Precio unitario: </span>
-                        <span class="vl1">$35,000</span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
 {% endblock %}
