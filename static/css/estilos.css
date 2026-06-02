@@ -193,6 +193,7 @@ body:not(.login-body) {
     padding: 30px;
     border-radius: 15px;
     box-shadow: var(--sombra-suave);
+    
 }
 
 .inv-header {
