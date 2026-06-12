@@ -42,12 +42,12 @@
         <td>{{ user.telefono }}</td>
         <td>{{ user.activo }}</td>
         <td>{{ user.fecha_inicio }}</td>
-        <td>
-          <a href="{% url 'editar_usuarios' user.id %}">Editar</a>
+        <td class="td-actions">
+          <a href="{% url 'editar_usuarios' user.id %}" class="btn-nuevo btn-sm">Editar</a>
 
-          <form action="{% url 'eliminar_usuario' user.id %}" method="POST" style="display: inline">
+          <form action="{% url 'eliminar_usuario' user.id %}" method="POST">
             {% csrf_token %}
-            <button type="submit">Eliminar</button>
+            <button type="submit" class="btn-logout btn-sm">Eliminar</button>
           </form>
         </td>
       </tr>

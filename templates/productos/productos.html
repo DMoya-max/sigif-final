@@ -41,34 +41,30 @@ Productos
     </thead>
     <tbody>
       {% for i in productos %}
-    </tbody>
-    <tr>
-      <td>{{ i.id }}</td>
-      <td>{{ i.nombre }}</td>
-      <td>{{ i.descripcion }}</td>
-      <td>{{ i.precio }}</td>
-      <td>{{ i.stock }}</td>
-      <td>{{ i.categoria }}</td>
-      <td>{{ i.activo }}</td>
-      <td>{{ i.fecha_creacion }}</td>
-      <td>{{ i.fecha_actualizacion }}</td>
-      <td>
-        <a href="{% url 'actualizar_productos' i.id %}">Editar</a>
-
-        <form
-          action="{% url 'eliminar_productos' i.id %}"
-          method="POST"
-          style="display: inline"
-        >
-          {% csrf_token %}
-          <button type="submit">Eliminar</button>
-        </form>
-      </td>
+      <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.nombre }}</td>
+        <td>{{ i.descripcion }}</td>
+        <td>{{ i.precio }}</td>
+        <td>{{ i.stock }}</td>
+        <td>{{ i.categoria }}</td>
+        <td>{{ i.activo }}</td>
+        <td>{{ i.fecha_creacion }}</td>
+        <td>{{ i.fecha_actualizacion }}</td>
+        <td class="td-actions">
+          <a href="{% url 'actualizar_productos' i.id %}" class="btn-nuevo btn-sm">Editar</a>
+          <form action="{% url 'eliminar_productos' i.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-logout btn-sm">Eliminar</button>
+          </form>
+        </td>
       </tr>
-      
       {% empty %}
+      <tr>
+        <td colspan="10">No hay productos</td>
+      </tr>
       {% endfor %}
-      </tbody>
+    </tbody>
     </table>
 </section>
 {% endblock %}
