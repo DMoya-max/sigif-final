@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="usuarios-header">
+        <div>
+            <h2>Eliminar Usuario</h2>
+            <p>Esta acción no se puede deshacer</p>
+        </div>
+    </div>
+
+    <div class="contenedor-formularios">
+        <div class="form-configuracion">
+            <h3>Confirmar eliminación</h3>
+            <div class="form-body">
+
+                <p class="Alerta-inv">¿Seguro que quieres eliminar a "{{ users }}"?</p>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="actions-container">
+                        <button type="submit" class="btn-guardar" style="background-color:var(--color-closed)">Sí, eliminar</button>
+                        <a href="{% url 'usuarios' %}" class="btn-nuevo" style="margin-left:10px; background:#e6edf2; color:var(--text-main);">Cancelar</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} inventario {% endblock %}
+
+{% block content %}
+
+        <header class="inventario-header">
+            <h1>Gestión de inventario</h1>
+        </header>
+
+        <!-- Menu horizontal -->
+        <div class="menu-horizontal">
+            <a href="{% url 'inv_control' %}">Control de stock</a>
+            <a href="{% url 'inventario' %}">Catalogo de ventas</a>
+            <a href="{% url 'inv_historial' %}">Historial de movimientos</a>
+        </div>
+
+        <!-- CONTENEDOR DEL LISTADO -->
+        <section class="inventario-container2">
+            <div class="inv-header">
+                <div>
+                    <h2>Catalogo de ventas</h2>
+                    <p>selecciona productos</p>
+                </div>
+                <div class="total" style="display: flex; align-items: flex;flex-end">
+                    
+                    <input
+                        type="text"
+                        class="buscar"
+                        placeholder=" Buscar productos por nombre o ID"/>
+                </div>
+                
+            </div>
+
+            <!-- Tarjetas de inventario -->
+             {% for producto in producto %}
+            <div class="tarjetas-inv">
+                <div class="inv-info">
+                    <strong>{{ producto.nombre }}</strong>
+                    <div class="extra">
+                        <span>Cantidad: {{ producto.stock }} Unidades.</span>
+                        <span>Precio Unitario: </span>
+                        <span class="vl1">${{ producto.precio|floatformat:2 }}</span>
+                        <button class="agregar">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+
+
+{% endblock %}
