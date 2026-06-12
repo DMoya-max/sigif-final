@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
+{% block title %}Crear Producto{% endblock %}
 {% block content %}
 <h1>Crear Producto</h1>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Crear</button>
-  <a href="{% url 'productos' %}">Cancelar</a>
+  <a href="{% url 'crear_productos' %}">Cancelar</a>
 </form>
 {% endblock %}
