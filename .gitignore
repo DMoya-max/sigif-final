@@ -1,5 +1,13 @@
-venv/
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+
+# Django
 db.sqlite3
-.env
+
+# Virtual env
+venv/
+
+# Logs
+*.log
