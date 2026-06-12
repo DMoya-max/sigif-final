@@ -1,53 +1,76 @@
-<!doctype html>
-
 {% extends 'base.html' %}
 
-{% block content %} 
+{% block content %}
 
-<html>
-  <head>
-    <title>Editar Usuario</title>
-  </head>
-  <body>
-    <h1>Editar Usuario</h1>
-    <a href="{% url 'usuarios' %}" class="back">Volver</a>
-    <form method="POST">
-      {% csrf_token %}
+  <div class="usuarios-header">
+    <div>
+      <h2>Editar Usuario</h2>
+      <p>Actualiza los datos del usuario</p>
+    </div>
+    <a href="{% url 'usuarios' %}" class="btn-nuevo">Volver</a>
+  </div>
 
-      {{ form.errors }}
-      <div>
-        <label>Nombre:</label>
-        {{ form.nombre }}
+  <div class="contenedor-formularios">
+    <div class="form-configuracion">
+      <h3>Datos del usuario</h3>
+      <div class="form-body">
+
+        {% if form.errors %}
+          <div class="alert error">
+            <strong>Errores:</strong>
+            <ul>
+              {% for field in form %}
+                {% for error in field.errors %}
+                  <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+              {% endfor %}
+              {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <form method="POST">
+          {% csrf_token %}
+
+          <div class="inv-info">
+            <label>Nombre</label>
+            {{ form.nombre }}
+          </div>
+
+          <div class="inv-info">
+            <label>Contraseña</label>
+            {{ form.contra }}
+          </div>
+
+          <div class="inv-info">
+            <label>Teléfono</label>
+            {{ form.telefono }}
+          </div>
+
+          <div class="inv-info">
+            <label>Activo</label>
+            {{ form.activo }}
+          </div>
+
+          <div class="inv-info">
+            <label>Fecha de inicio</label>
+            {{ form.fecha_inicio }}
+          </div>
+
+          <div class="inv-info">
+            <label>Cargo</label>
+            {{ form.cargo }}
+          </div>
+
+          <div class="actions-container">
+            <button type="submit" class="btn-guardar">Guardar</button>
+          </div>
+        </form>
+
       </div>
+    </div>
+  </div>
 
-      <div>
-        <label>Contra:</label>
-        {{ form.contra }}
-      </div>
-
-      <div>
-        <label>Telefono:</label>
-        {{ form.telefono }}
-      </div>
-
-      <div>
-        <label>Activo:</label>
-        {{ form.activo }}
-      </div>
-
-      <div>
-        <label>Fecha de inicio:</label>
-        {{ form.fecha_inicio }}
-      </div>
-
-      <div>
-        <label>Cargo:</label>
-        {{ form.cargo }}
-      </div>
-
-      <button type="submit">Guardar</button>
-    </form>
-    <br />
-  </body>
 {% endblock %}
-</html>

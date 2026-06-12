@@ -5,15 +5,55 @@
 
 {% block content %}
 
-<h1>Crear Usuario</h1>
+    <div class="usuarios-header">
+        <div>
+            <h2>Crear Usuario</h2>
+            <p>Ingrese la información para crear un nuevo usuario</p>
+        </div>
+        <a href="{% url 'usuarios' %}" class="btn-nuevo">Volver</a>
+    </div>
 
-<a href="{% url 'usuarios' %}" class="back">Volver</a>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.errors }}
-    {{ form.as_p }}
+    <div class="contenedor-formularios">
+        <div class="form-configuracion">
+            <h3>Datos del usuario</h3>
+            <div class="form-body">
 
-    <button type="submit">Guardar</button>
-</form>
+                {% if form.errors %}
+                    <div class="alert error">
+                        <strong>Errores:</strong>
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>{{ field.label }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    {% for field in form.visible_fields %}
+                        <div class="inv-info">
+                            <label>{{ field.label }}</label>
+                            {{ field }}
+                            {% if field.errors %}
+                                <div class="alert error">{{ field.errors|join:", " }}</div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                    <div class="actions-container">
+                        <button type="submit" class="btn-guardar">Guardar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
