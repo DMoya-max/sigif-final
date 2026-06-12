@@ -60,3 +60,9 @@ def eliminar_usuario(request, id):
         return redirect('usuarios')
     else:
         return render(request, 'usuarios/eliminar_usuario.html', {'user': user})
+
+
+def logout_view(request):
+    request.session.flush()
+    messages.success(request, "Sesión cerrada")
+    return redirect('login')

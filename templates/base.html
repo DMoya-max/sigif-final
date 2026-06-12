@@ -26,11 +26,11 @@
         <li><a href="{% url 'inventario' %}">Inventario</a></li>
         <li><a href="{% url 'facturacion' %}">Facturación</a></li>
         <li><a href="{% url 'mant' %}">Auditoría</a></li>
-        <li><a href="{% url 'inv_configuracion' %}">Configuración</a></li>
+        <li><a href="{% url 'configuracion' %}">Configuración</a></li>
       </ul>
     </nav>
     <div class="Cerrar-sesion">
-      <li> <a href="{% url 'login' %}" class="btn-logout"
+<li> <a href="{% url 'logout' %}" class="btn-logout"
           onclick="return confirm('¿Estás seguro de que quieres cerrar sesión?')">Cerrar sesión</a></li>
     </div>
   </aside>

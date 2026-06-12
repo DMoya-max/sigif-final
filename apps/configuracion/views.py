@@ -2,11 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import EmpresaConfig
 
-@login_required
-def configuracion(request):
-    config, created = EmpresaConfig.objects.get_or_create(id=1)
 
-    if request.method == 'POST':
+def configuracion(request):
+    config = EmpresaConfig.objects.get (id=1)
+    return render(request, 'configuracion/configuracion.html', {'config': config})
+
+
+"""  if request.method == 'POST':
+
         
         if request.user.is_staff:
            
@@ -21,10 +24,8 @@ def configuracion(request):
                 config.correo_contacto = request.POST.get('correo_contacto')
 
             config.save() 
-            return redirect('configuracion') 
+            
+"""
 
-    return render(request, 'configuracion/configuracion.html', {'config': config})
-
-@login_required
 def backupypermisos(request):
     return render(request, 'configuracion/backupypermisos.html')

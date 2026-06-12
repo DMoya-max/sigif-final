@@ -338,7 +338,13 @@ body:not(.login-body) {
     display: inline-block;
     text-align: center;
 }
-
+.total{
+    margin-left: auto;
+}
+.inv-header{
+    display: flex;
+    align-items: center;
+}
 .btn-nuevo,
 .agregar,
 .btn-guardar {
