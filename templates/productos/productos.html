@@ -5,11 +5,13 @@ Productos
 
 {% block content %}
 
-<header class="productos-header">
-  <h1>Gestión de productos</h1>
-  <p>Administra el catálogo de productos</p>
+<header class="usuarios-header">
+  <div>
+    <h2>Gestión de productos</h2>
+    <p>Administra el catálogo de productos</p>
+  </div>
+  <a href="{% url 'crear_productos' %}" class="btn-nuevo">Nuevo producto</a>
 </header>
-<a href="{% url 'crear_productos' %}" class="AP"> + crear producto </a>
 <section class="productos-lista">
   <div class="productos-sub">
     <div>
