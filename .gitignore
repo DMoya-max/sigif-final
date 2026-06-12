@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 # Python cache
+=======
+>>>>>>> origin/main
 __pycache__/
 *.pyc
 *.pyo
 
 # Django
 db.sqlite3
+<<<<<<< HEAD
 
 # Virtual env
 venv/
 
 # Logs
 *.log
+=======
+*.sqlite3
+.env
+.DS_Store
+>>>>>>> origin/main

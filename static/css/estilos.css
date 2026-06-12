@@ -338,6 +338,29 @@ body:not(.login-body) {
     display: inline-block;
     text-align: center;
 }
+.btn-sm {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+}
+.btn-logout.btn-sm {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    width: auto;
+    min-width: auto;
+    line-height: 1.2;
+}
+.td-actions a,
+.td-actions form,
+.td-actions button {
+    display: inline-block;
+    vertical-align: middle;
+}
+.td-actions form {
+    margin-left: 8px;
+}
+
 .total{
     margin-left: auto;
 }
