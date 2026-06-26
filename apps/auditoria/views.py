@@ -6,3 +6,4 @@ from .models import Auditoria
 def auditoria(request):
     datos = Auditoria.objects.all().order_by('-fecha')
     return render(request, 'auditoria/ver_registros.html', {'datos': datos})
+#
