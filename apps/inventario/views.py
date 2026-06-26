@@ -29,5 +29,10 @@ def inv_historial(request):
     return render(request, "inventario/inv_historial.html")
 
 def inv_control(request):
+    producto = Producto.objects.all()
 
-    return render(request, "inventario/inv_control.html")
+    contexto = {
+        'producto': producto
+    }
+
+    return render(request, "inventario/inv_control.html", contexto)
